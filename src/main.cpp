@@ -34,27 +34,27 @@ vector<Ant*> ants;
 double pheromone_cost[CITY_AMOUNT][CITY_AMOUNT];
 double pheromone_coverage[CITY_AMOUNT][CITY_AMOUNT];
 int cost_links[CITY_AMOUNT][CITY_AMOUNT] = { { INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1 }, { 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1 }, { 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1,
 		1, 1 },
-		{ 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1,
-				1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, {
-				1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1,
-				1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, {
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1, 1 },
 		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1, 1 }, { 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1 }, {
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1 }, { 1,
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1 }, {
-				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1 },
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1, 1 }, { 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1, 1 },
+		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1, 1 }, { 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1, 1 },
 		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID, 1 }, { 1,
 				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, INVALID } };
-int rate[CITY_AMOUNT] = { 490, 190, 90, 170, 40, 50, 30, 20, 80, 10, 80, 10, 60,
-		30, 20, 10, 50, 30, 10 };
+int rate[CITY_AMOUNT] = { 490, 190, 90, 170, 40, 50, 30, 20, 80, 10, 80, 10,
+		60, 30, 20, 10, 50, 30, 10 };
 int best_cost = INVALID;
 int worse_cost = INVALID;
 int best_coverage = INVALID;
@@ -131,7 +131,7 @@ void initialize_ants(vector<Ant*> *vec) {
 void positioning_ants(vector<Ant*> *vec, bool random) {
 	for (unsigned int i = 0; i < vec->size(); i++) {
 		if (random) {
-			CajuinaLabs: random_city = get_random_number(0, (CITY_AMOUNT - 1));
+			random_city = get_random_number(0, (CITY_AMOUNT - 1));
 		}
 		vec->at(i)->addToRoute(random_city);
 	}
@@ -173,8 +173,7 @@ void build_solutions(vector<Ant*> *vec) {
 			double transition_probability[CITY_AMOUNT];
 			double link_rate_sum = 0;
 
-			if (trail == Ant::IDLE
-					or vec->at(i)->getTrailMode() == Ant::RANDOM) {
+			if (trail == Ant::IDLE or vec->at(i)->getTrailMode() == Ant::RANDOM) {
 				int r = get_random_number(1, 100);
 				if (r >= 1 and r <= 50) {
 					trail = Ant::COST;
@@ -217,9 +216,8 @@ void build_solutions(vector<Ant*> *vec) {
 						if (pheromone_cost[position][j] >= 0
 								and cost_links[position][j] >= 0) {
 							transition_probability[j] = (pow(
-									pheromone_cost[position][j], ALFA)
-									* pow(rate[position], BETA))
-									/ link_rate_sum;
+									pheromone_cost[position][j], ALFA) * pow(
+									rate[position], BETA)) / link_rate_sum;
 						} else {
 							transition_probability[j] = 0;
 						}
@@ -308,8 +306,8 @@ void check_best_solution(vector<Ant*> *vec) {
 
 double calculate_quality(Ant *ant) {
 	cout << "calculate_quality" << endl;
-	double quality = (1 - (ant->getCost() / worse_cost))
-			+ (1 - (ant->getCoverage() / best_coverage)) + 0.00001;
+	double quality = (1 - (ant->getCost() / worse_cost)) + (1
+			- (ant->getCoverage() / best_coverage)) + 0.00001;
 	return quality;
 }
 
